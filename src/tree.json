@@ -1,0 +1,97 @@
+{
+  "name": "Одежда",
+  "catalog": [
+    {
+      "name": "Зимняя",
+      "selected": true,
+      "catalog": [
+        {
+          "name": "Куртки",
+          "selected": true,
+          "catalog": [
+
+              {
+                "name": "Northway",
+                "selected": true
+              },
+              {
+                "name": "Columbia",
+                "selected": false
+              },
+              {
+                "name": "Другие",
+                "selected": false
+              }
+
+          ]
+        },
+        {
+          "name": "Ботинки",
+          "selected": false,
+          "catalog": [
+            {
+              "name": "Columbia",
+              "selected": true
+            },
+            {
+              "name": "Ecсo",
+              "selected": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Летняя",
+      "selected": false,
+      "catalog": [
+        {
+          "name": "Куртки",
+          "selected": false,
+          "catalog": [
+
+              {
+                "name": "Termit",
+                "selected": false
+              },
+              {
+                "name": "Outventure",
+                "selected": true
+              },
+              {
+                "name": "Большевичка",
+                "selected": true
+              },
+              {
+                "name": "Другие",
+                "selected": true
+              }
+
+          ]
+        },
+        {
+          "name": "Кросовки",
+          "selected": true,
+          "catalog": [
+            {
+              "name": "Nike",
+              "selected": false
+            },
+            {
+              "name": "Puma",
+              "selected": true
+            },
+            {
+              "name": "Adidas",
+              "selected": false
+            },
+            {
+              "name": "Другие",
+              "selected": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
