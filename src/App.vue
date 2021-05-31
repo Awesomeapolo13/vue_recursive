@@ -1,3 +1,4 @@
+<script src="main.js"></script>
 <template>
   <div id="app">
     <div class="header">
@@ -24,7 +25,7 @@
     </ul>
     <div v-if="showCurrentJSON">
       <pre>
-        {{ visualJson }}
+        {{ initialJson }}
       </pre>
     </div>
   </div>
@@ -33,13 +34,14 @@
 <script>
 import TreeCatalog from "@/components/TreeCatalog";
 import initJson from "./tree.json"
+import _ from 'lodash'
 
 export default {
   name: 'App',
   data() {
     return {
-      initialJson: initJson,
       visualJson: initJson,
+      initialJson: initJson,
       showCurrentJSON: false,
     }
   },
@@ -48,6 +50,9 @@ export default {
   },
 
   methods: {
+    /**
+     * Функция отображения json
+     */
     showJson() {
       this.showCurrentJSON ? this.showCurrentJSON = false : this.showCurrentJSON = true;
     },
@@ -80,13 +85,22 @@ export default {
           'color': 'forestgreen',
         }
       }
+    },
 
+    /**
+     * Функция, отменяющая изменения внесенные в каталоги (возвращает чекбоксы в исходные состояния)
+     */
+    removeChanges() {
+      this.initialJson = _.cloneDeep(this.visualJson);
+    }
   },
 
-    removeChanges() {
-      this.initialJson = this.visualJson
-    }
-  }
+  /**
+   * Производит клонирование исходного json
+   */
+  mounted() {
+    this.initialJson = _.cloneDeep(this.visualJson);
+  },
 }
 </script>
 

@@ -8,7 +8,7 @@
         name="selected"
         :checked="initialJson['selected']"
         v-model="initialJson['selected']"
-        @input="getCheckboxValue(initialJson)">
+        @input="changeCheckboxValue(initialJson)">
     <span :style="changeVisualTreeElemState()">
       {{ initialJson['name'] }}
     </span>
@@ -40,10 +40,6 @@ export default {
     },
   },
 
-  mounted() {
-
-  },
-
   data() {
     return {
       newShow: this.show,
@@ -55,21 +51,22 @@ export default {
   },
 
   methods: {
-    getCheckboxValue(initialJson) {
-      // event.target.checked ? this.initialJson['selected'] = true : initialJson['selected'] = false;
-      if (event.target.checked) {
-        initialJson['selected'] = true;
-      } else {
-        initialJson['selected'] = false;
-      }
+    /**
+     * Метод изменения данных о выделенности
+     */
+    changeCheckboxValue(initialJson) {
+      event.target.checked ? this.initialJson['selected'] = true : initialJson['selected'] = false;
     },
 
+    /**
+     * Метод отображения / скрытия элементов поддерева
+     */
     showElements() {
       this.newShow ? this.newShow = false : this.newShow = true;
     },
 
     /**
-     * Функция, изменяющая состояние элемента, которое зависит от количества вложенных выделенных элементов
+     * Метод, изменяющий состояние элемента, которое зависит от количества вложенных выделенных элементов
      * @returns {{color: string}}
      */
     changeVisualTreeElemState() {
